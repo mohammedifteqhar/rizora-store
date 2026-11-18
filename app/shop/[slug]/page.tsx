@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import AddToCart from "@/components/AddToCart";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = products.find((p) => p.id === slug);
