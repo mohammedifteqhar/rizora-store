@@ -11,6 +11,7 @@ export default function Navbar() {
           <Link href="/artisan">ARTISAN</Link>
           <Link href="/journal">JOURNAL</Link>
           <Link href="/cart">CART</Link>
+          <Link href="/book">BOOK</Link>
         </nav>
       </div>
     </header>
