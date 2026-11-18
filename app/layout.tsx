@@ -17,22 +17,25 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Rizora - Wall and Home Decor",
-  description: "Rizora - Wall and Home Decor, Elegant wall art, mirrors, and home decor.",
+  description: "Rizora - Wall and Home Decor, Bengaluru. Elegant wall art, mirrors, and home decor.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
-      <CartProvider>
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </CartProvider>
-    </body>
+        <CartProvider>
+          <div className="mx-auto min-h-screen w-full max-w-[1400px] bg-cream shadow-lg">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </CartProvider>
+      </body>
     </html>
   );
 }
