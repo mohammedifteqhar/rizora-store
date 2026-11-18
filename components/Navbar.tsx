@@ -14,11 +14,11 @@ export default function Navbar() {
   return (
     <>
       <header className="border-b border-[#E6DFD5] bg-cream">
-        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-6 py-4">
-          <Link href="/" className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-28 w-28 object-contain" />
-            <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-4xl font-semibold tracking-widest text-transparent">RIZORA</span>
-          </Link>
+        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-6 py-2">
+          <Link href="/" className="flex items-center gap-4">
+          <img src="/logo.png" alt="Rizora logo" className="h-32 w-32 shrink-0 object-contain" />
+          <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-5xl font-semibold leading-none tracking-widest text-transparent">RIZORA</span>
+        </Link>
           <nav className="flex justify-center gap-6 text-xs tracking-widest text-[#B9975B]">
             <Link href="/shop" className="hover:text-gold">SHOP</Link>
             <Link href="/collections" className="hover:text-gold">COLLECTIONS</Link>
