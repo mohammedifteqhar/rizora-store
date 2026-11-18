@@ -1,12 +1,36 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { products } from "@/lib/products";
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [soundOn, setSoundOn] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.75;
+    }
+  }, []);
+
+  function toggleSound() {
+    if (!audioRef.current) return;
+    if (soundOn) {
+      audioRef.current.pause();
+      setSoundOn(false);
+    } else {
+      audioRef.current.volume = 0.2;
+      audioRef.current.play();
+      setSoundOn(true);
+    }
+  }
+
   return (
     <main className="min-h-screen bg-cream text-charcoal">
       <section className="relative overflow-hidden px-6 py-24 text-center text-white">
-        <video autoPlay muted loop playsInline poster="https://images.unsplash.com/photo-1618220179428-22790b461013?w=1600&q=80" className="absolute inset-0 h-full w-full object-cover">
-          <source src="https://videos.pexels.com/video-files/7578546/7578546-hd_1920_1080_25fps.mp4" type="video/mp4" />
+        <video ref={videoRef} autoPlay muted loop playsInline poster="https://images.unsplash.com/photo-1618220179428-22790b461013?w=1600&q=80" className="absolute inset-0 h-full w-full object-cover">
+          <source src="/hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative">
@@ -15,6 +39,10 @@ export default function Home() {
           <p className="mt-4 text-lg text-gray-300">Elegant wall art, mirrors, and home decor from Bengaluru.</p>
           <Link href="/shop" className="mt-8 inline-block bg-gold px-8 py-3 text-charcoal">VIEW COLLECTION</Link>
         </div>
+        <button onClick={toggleSound} className="absolute bottom-4 right-4 z-10 rounded-full border border-gold px-4 py-2 text-sm text-gold">
+          {soundOn ? "Sound Off" : "Sound On"}
+        </button>
+        <audio ref={audioRef} src="/soft-ambient.mp3" loop />
       </section>
       <section className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="text-center text-3xl font-serif">Curated Masterpieces</h2>
