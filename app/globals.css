@@ -14,13 +14,13 @@
   --font-serif: "Cinzel", "Playfair Display", Georgia, serif;
   --color-gold: #C9A227;
   --color-softgold: #E8C874;
-  --color-cream: #FFF8F1;
+  --color-cream: #F3E8D3;
   --color-charcoal: #1A1A1A;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #FDEFE3;
+    --background: #E2D1B5;
     --foreground: #1A1A1A;
   }
 }
