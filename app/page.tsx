@@ -58,6 +58,23 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <h2 className="text-center text-3xl font-serif">Why Rizora</h2>
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div className="border border-[#E6DFD5] bg-white p-6 text-center">
+            <h3 className="font-serif text-xl text-gold">Hand-finished</h3>
+            <p className="mt-2 text-sm text-gray-600">Every piece is checked by hand before it is packed.</p>
+          </div>
+          <div className="border border-[#E6DFD5] bg-white p-6 text-center">
+            <h3 className="font-serif text-xl text-gold">Free delivery over Rs. 999</h3>
+            <p className="mt-2 text-sm text-gray-600">Free delivery in Bengaluru on orders over Rs. 999.</p>
+          </div>
+          <div className="border border-[#E6DFD5] bg-white p-6 text-center">
+            <h3 className="font-serif text-xl text-gold">Free consultation</h3>
+            <p className="mt-2 text-sm text-gray-600">Book a free consultation and we will help you choose.</p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
