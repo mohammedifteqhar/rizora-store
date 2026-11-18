@@ -16,7 +16,7 @@ export default function Navbar() {
       <header className="border-b border-[#E6DFD5] bg-cream">
         <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-6 py-4">
           <Link href="/" className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-22 w-22 object-contain" />
+            <img src="/logo.jpg" alt="Rizora logo" className="h-28 w-28 object-contain" />
             <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-4xl font-semibold tracking-widest text-transparent">RIZORA</span>
           </Link>
           <nav className="flex justify-center gap-6 text-xs tracking-widest text-[#B9975B]">
