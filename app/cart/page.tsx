@@ -27,6 +27,7 @@ export default function CartPage() {
         ))}
       </div>
       <p className="mt-6 text-xl font-semibold">Total: Rs. {total}</p>
+      <Link href="/checkout" className="mt-4 inline-block bg-charcoal px-8 py-3 text-white">Go to Checkout</Link>
     </main>
   );
 }
