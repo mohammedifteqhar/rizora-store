@@ -10,6 +10,7 @@ export default function Navbar() {
           <Link href="/collections">COLLECTIONS</Link>
           <Link href="/artisan">ARTISAN</Link>
           <Link href="/journal">JOURNAL</Link>
+          <Link href="/cart">CART</Link>
         </nav>
       </div>
     </header>

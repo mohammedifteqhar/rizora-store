@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
+import AddToCart from "@/components/AddToCart";
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -17,8 +18,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <h1 className="mt-2 text-4xl font-serif">{product.name}</h1>
       <p className="mt-4 text-gray-600">{product.description}</p>
       <p className="mt-6 text-2xl font-semibold">Rs. {product.price}</p>
-      <button className="mt-8 bg-charcoal px-8 py-3 text-white">Add to Cart</button>
-      <p className="mt-4 text-sm text-gray-500">Cart will work in the next step.</p>
+      <AddToCart product={product} />
     </main>
   );
 }
