@@ -35,7 +35,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative">
           <p className="text-sm tracking-widest text-gold">WALL AND HOME DECOR</p>
-          <h1 className="mt-4 text-6xl font-serif text-gold">RIZORA</h1>
+          <h1 className="mt-4 bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-6xl font-semibold tracking-widest text-transparent">RIZORA</h1>
           <p className="mt-4 text-lg text-gray-300">Elegant wall art, mirrors, and home decor from Bengaluru.</p>
           <Link href="/shop" className="mt-8 inline-block bg-gold px-8 py-3 text-charcoal">VIEW COLLECTION</Link>
         </div>

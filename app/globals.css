@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EFECE6;
+  --background: #FDEFE3;
   --foreground: #1A1A1A;
 }
 
@@ -12,9 +12,9 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: "Playfair Display", Georgia, serif;
-  --color-gold: #D4AF37;
-  --color-softgold: #F3E5AB;
-  --color-cream: #F9F6F0;
+  --color-gold: #C9A227;
+  --color-softgold: #E8C874;
+  --color-cream: #FFF8F1;
   --color-charcoal: #1A1A1A;
 }
 
