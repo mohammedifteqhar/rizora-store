@@ -5,7 +5,7 @@ export default function Home() {
         <p className="text-sm tracking-widest text-gold">WALL AND HOME DECOR</p>
         <h1 className="mt-4 text-6xl font-serif text-gold">RIZORA</h1>
         <p className="mt-4 text-lg">Elegant wall art, mirrors, and home decor from Bengaluru.</p>
-        <a href="#" className="mt-8 inline-block bg-charcoal px-8 py-3 text-white">VIEW COLLECTION</a>
+        <a href="/shop" className="mt-8 inline-block bg-charcoal px-8 py-3 text-white">VIEW COLLECTION</a>
       </section>
     </main>
   );
