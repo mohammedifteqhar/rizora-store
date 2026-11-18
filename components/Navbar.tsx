@@ -26,7 +26,7 @@ export default function Navbar() {
             <Link href="/journal" className="hover:text-gold">JOURNAL</Link>
           </nav>
           <div className="flex items-center justify-end gap-4 text-xs tracking-widest text-[#B9975B]">
-            <Link href="/cart" className="hover:text-gold">CART</Link>
+            <Link href="/cart" className="text-xl hover:text-gold">🛒</Link>
             <Link href="/book" className="hover:text-gold">BOOK</Link>
             <button onClick={() => setLoginOpen(true)} className="rounded-full border border-gold px-4 py-2 text-gold">LOGIN</button>
           </div>
