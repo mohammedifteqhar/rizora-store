@@ -13,20 +13,21 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="border-b border-[#E6DFD5] bg-cream">
+    <div className="h-1 w-full bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874]" />
+      <header className="border-b-2 border-gold bg-cream">
         <div className="mx-auto grid max-w-6xl grid-cols-3 items-center px-6 py-2">
           <Link href="/" className="flex items-center gap-4">
           <img src="/logo.png" alt="Rizora logo" className="h-32 w-32 shrink-0 object-contain" />
           <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-5xl font-semibold leading-none tracking-widest text-transparent">RIZORA</span>
         </Link>
-          <nav className="flex justify-center gap-6 text-xs tracking-widest text-[#B9975B]">
+          <nav className="flex justify-center gap-6 rounded-full border border-gold/60 px-6 py-2 text-xs tracking-widest text-[#B9975B]">
             <Link href="/shop" className="hover:text-gold">SHOP</Link>
             <Link href="/collections" className="hover:text-gold">COLLECTIONS</Link>
             <Link href="/artisan" className="hover:text-gold">ARTISAN</Link>
             <Link href="/journal" className="hover:text-gold">JOURNAL</Link>
           </nav>
           <div className="flex items-center justify-end gap-4 text-xs tracking-widest text-[#B9975B]">
-            <Link href="/cart" className="text-xl hover:text-gold">🛒</Link>
+            
             <Link href="/book" className="hover:text-gold">BOOK</Link>
             <button onClick={() => setLoginOpen(true)} className="rounded-full border border-gold px-4 py-2 text-gold">LOGIN</button>
           </div>
