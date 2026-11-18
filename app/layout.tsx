@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Rizora - Wall and Home Decor",
-  description: "Rizora - Wall and Home Decor, Bengaluru. Elegant wall art, mirrors, and home decor.",
+  description: "Rizora - Wall and Home Decor, Elegant wall art, mirrors, and home decor.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -24,10 +25,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col"><body>
-  <Navbar />
-  {children}
-</body>{children}</body>
+      <body className="flex min-h-full flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
