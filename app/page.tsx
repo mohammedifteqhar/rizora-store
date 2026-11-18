@@ -6,7 +6,10 @@ import { products } from "@/lib/products";
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const fadeTimer = useRef<number | null>(null);
   const [soundOn, setSoundOn] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(true);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -14,21 +17,63 @@ export default function Home() {
     }
   }, []);
 
-  function toggleSound() {
+  useEffect(() => {
+    if (!heroRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  function fadeAudio(target: number) {
     if (!audioRef.current) return;
-    if (soundOn) {
-      audioRef.current.pause();
-      setSoundOn(false);
-    } else {
-      audioRef.current.volume = 0.2;
+    if (fadeTimer.current) window.clearInterval(fadeTimer.current);
+    const audio = audioRef.current;
+    fadeTimer.current = window.setInterval(() => {
+      if (!audio) return;
+      if (target > audio.volume) {
+        audio.volume = Math.min(target, audio.volume + 0.01);
+        if (audio.volume >= target) {
+          if (fadeTimer.current) window.clearInterval(fadeTimer.current);
+        }
+      } else {
+        audio.volume = Math.max(target, audio.volume - 0.01);
+        if (audio.volume <= target) {
+          if (fadeTimer.current) window.clearInterval(fadeTimer.current);
+          if (target === 0) audio.pause();
+        }
+      }
+    }, 100);
+  }
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+    if (soundOn && heroVisible) {
       audioRef.current.play();
-      setSoundOn(true);
+      fadeAudio(0.1);
+    } else {
+      fadeAudio(0);
     }
+    return () => {
+      if (fadeTimer.current) window.clearInterval(fadeTimer.current);
+    };
+  }, [soundOn, heroVisible]);
+
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) audioRef.current.pause();
+    };
+  }, []);
+
+  function toggleSound() {
+    setSoundOn(!soundOn);
   }
 
   return (
     <main className="min-h-screen bg-cream text-charcoal">
-      <section className="relative overflow-hidden px-6 py-24 text-center text-white">
+      <section ref={heroRef} className="relative overflow-hidden px-6 py-24 text-center text-white">
         <video ref={videoRef} autoPlay muted loop playsInline poster="https://images.unsplash.com/photo-1618220179428-22790b461013?w=1600&q=80" className="absolute inset-0 h-full w-full object-cover">
           <source src="/hero.mp4" type="video/mp4" />
         </video>
