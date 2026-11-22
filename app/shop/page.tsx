@@ -4,7 +4,8 @@ import { products } from "@/lib/products";
 export default function ShopPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-12">
-      <h1 className="text-4xl font-serif text-charcoal">Shop</h1>
+  <div className="h-1 w-full bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874]" />
+  <h1 className="mt-6 border-b-2 border-gold pb-4 text-4xl font-serif">Shop</h1>
       <p className="mt-2 text-gray-600">Curated wall decor pieces.</p>
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
