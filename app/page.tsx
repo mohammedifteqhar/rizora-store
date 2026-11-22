@@ -43,7 +43,7 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 pb-16">
         <h2 className="text-center text-3xl font-serif">Why Rizora</h2>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          <div className="border border-[#E6DFD5] bg-white p-6 text-center">
+          <div className="border border-[#E6DFD5] bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-gold/20">
             <h3 className="font-serif text-xl text-gold">Hand-finished</h3>
             <p className="mt-2 text-sm text-gray-600">Every piece is checked by hand before it is packed.</p>
           </div>
