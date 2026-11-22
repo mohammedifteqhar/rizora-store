@@ -21,10 +21,10 @@ export default function Navbar() {
             <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-2xl font-semibold leading-none tracking-widest text-transparent sm:text-4xl">RIZORA</span>
           </Link>
           <nav className="mx-auto flex w-fit flex-wrap justify-center gap-3 rounded-full border border-gold/60 px-4 py-2 text-[10px] tracking-widest text-[#B9975B] sm:gap-6 sm:px-6 sm:text-xs">
-            <Link href="/shop" className="hover:text-gold">SHOP</Link>
-            <Link href="/collections" className="hover:text-gold">COLLECTIONS</Link>
-            <Link href="/artisan" className="hover:text-gold">ARTISAN</Link>
-            <Link href="/journal" className="hover:text-gold">JOURNAL</Link>
+            <Link href="/shop" className="transition-all duration-300 hover:text-gold hover:underline hover:underline-offset-4">SHOP</Link>
+            <Link href="/collections" className="transition-all duration-300 hover:text-gold hover:underline hover:underline-offset-4">COLLECTIONS</Link>
+            <Link href="/artisan" className="transition-all duration-300 hover:text-gold hover:underline hover:underline-offset-4">ARTISAN</Link>
+            <Link href="/journal" className="transition-all duration-300 hover:text-gold hover:underline hover:underline-offset-4">JOURNAL</Link>
           </nav>
           <div className="flex shrink-0 items-center justify-end gap-4 text-xs tracking-widest text-[#B9975B]">
             <Link href="/cart" className="text-xl hover:text-gold">🛒</Link>
