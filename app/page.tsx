@@ -23,7 +23,7 @@ export default function Home() {
           <p className="text-sm tracking-widest text-gold">WALL AND HOME DECOR</p>
           <h1 className="mt-4 bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-6xl font-semibold tracking-widest text-transparent">RIZORA</h1>
           <p className="mt-4 text-lg text-gray-300">Elegant wall art, mirrors, and home decor from Bengaluru.</p>
-          <Link href="/shop" className="mt-8 inline-block bg-gold px-8 py-3 text-charcoal">VIEW COLLECTION</Link>
+          <Link href="/shop" className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-charcoal transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#C9A227] hover:shadow-lg hover:shadow-gold/40">VIEW COLLECTION</Link>
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-6 py-16">
