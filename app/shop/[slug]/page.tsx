@@ -22,7 +22,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   return (
     <main className="mx-auto max-w-6xl px-6 py-12">
       <Link href="/shop" className="text-sm text-gold">← Back to Shop</Link>
-      <img src={product.image} alt={product.name} className="mt-8 h-96 w-full rounded-lg object-cover" />
+      <img src={product.image} alt={product.name} className="mx-auto mt-8 h-64 w-full max-w-xl rounded-lg object-cover sm:h-80" />
       <p className="mt-4 text-xs tracking-widest text-gold">{product.category}</p>
       <h1 className="mt-2 text-4xl font-serif">{product.name}</h1>
       <p className="mt-4 text-gray-600">{product.description}</p>
