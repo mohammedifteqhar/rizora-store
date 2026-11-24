@@ -35,3 +35,7 @@ body {
 html {
   background: #E2D1B5;
 }
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}

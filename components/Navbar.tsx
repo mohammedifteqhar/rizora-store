@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <header className="w-full border-b-2 border-gold bg-cream">
       <div className="h-1 w-full bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874]" />
-      <div className="flex w-full flex-col items-center justify-between gap-4 px-6 py-2 sm:flex-row lg:px-12">
+      <div className="flex w-full flex-wrap items-center justify-between gap-4 px-6 py-2 lg:px-12">
         <Link href="/" className="flex shrink-0 items-center gap-4">
           <img src="/logo.jpg" alt="Rizora logo" className="h-16 w-16 sm:h-24 sm:w-24" />
           <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-2xl leading-none text-transparent sm:text-4xl">RIZORA</span>
