@@ -42,7 +42,7 @@ export default function AddToCart({ product }: { product: Product }) {
   }
 
   return (
-    <button onClick={handleAdd} className={`mt-4 w-full rounded-full px-8 py-3 transition-all duration-300 active:scale-95 ${added ? "scale-105 bg-gold text-charcoal shadow-lg shadow-gold/40" : "bg-charcoal text-white hover:-translate-y-0.5 hover:bg-gold hover:text-charcoal hover:shadow-lg hover:shadow-gold/40"}`}>
+    <button onClick={handleAdd} className={`mt-4 w-full rounded-full px-8 py-3 transition-all duration-300 active:scale-95 ${added ? "scale-105 bg-[#8C6D1F] text-white shadow-lg shadow-gold/40" : "bg-gold text-charcoal hover:-translate-y-0.5 hover:bg-charcoal hover:text-white hover:shadow-lg hover:shadow-gold/40"}`}>
       {added ? "Added to Cart ✓" : "Add to Cart"}
     </button>
   );
