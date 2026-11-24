@@ -26,8 +26,12 @@
 }
 
 body {
-  background: var(--background);
+  background: #E2D1B5;
   color: var(--foreground);
   font-family: "Jost", Arial, sans-serif;
   letter-spacing: 0.02em;
+}
+
+html {
+  background: #E2D1B5;
 }
