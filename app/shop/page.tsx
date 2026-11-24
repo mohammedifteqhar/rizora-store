@@ -4,7 +4,7 @@ import AddToCart from "@/components/AddToCart";
 
 export default function ShopPage() {
   return (
-    <main className="mx-auto max-w-6xl px-6 py-12">
+    <main className="w-full px-6 py-12 lg:px-12">
       <div className="h-1 w-full bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874]" />
       <h1 className="mt-6 border-b-2 border-gold pb-4 text-4xl font-serif">Shop</h1>
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
