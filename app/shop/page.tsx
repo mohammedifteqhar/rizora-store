@@ -9,14 +9,16 @@ export default function ShopPage() {
       <h1 className="mt-6 border-b-2 border-gold pb-4 text-4xl font-serif">Shop</h1>
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
-          <div key={product.id} className="group rounded-lg border border-[#E6DFD5] bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-gold/20">
+          <div key={product.id} className="group flex h-full flex-col rounded-lg border border-[#E6DFD5] bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-gold/20">
             <Link href={`/shop/${product.id}`}>
               <img src={product.image} alt={product.name} className="h-48 w-full rounded-md object-cover transition-transform duration-300 group-hover:scale-105" />
               <p className="mt-4 text-xs tracking-widest text-gold">{product.category}</p>
-              <h3 className="mt-2 font-serif text-xl">{product.name}</h3>
+              <h3 className="mt-2 min-h-[3.5rem] font-serif text-xl leading-snug">{product.name}</h3>
             </Link>
             <p className="mt-4 font-semibold">Rs. {product.price}</p>
-            <AddToCart product={product} />
+            <div className="mt-auto pt-4">
+              <AddToCart product={product} />
+            </div>
           </div>
         ))}
       </div>
