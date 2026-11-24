@@ -6,6 +6,7 @@ import type { Product } from "@/lib/products";
 export default function AddToCart({ product }: { product: Product }) {
   const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
+  const [qty, setQty] = useState(1);
 
   function playChime() {
     try {
@@ -32,7 +33,9 @@ export default function AddToCart({ product }: { product: Product }) {
   }
 
   function handleAdd() {
-    addToCart(product);
+    for (let i = 0; i < qty; i++) {
+      addToCart(product);
+    }
     if (typeof navigator !== "undefined" && "vibrate" in navigator) {
       navigator.vibrate(50);
     }
@@ -42,8 +45,18 @@ export default function AddToCart({ product }: { product: Product }) {
   }
 
   return (
-    <button onClick={handleAdd} className={`mt-4 w-full rounded-full px-8 py-3 transition-all duration-300 active:scale-95 ${added ? "scale-105 bg-[#8C6D1F] text-white shadow-lg shadow-gold/40" : "bg-gold text-charcoal hover:-translate-y-0.5 hover:bg-charcoal hover:text-white hover:shadow-lg hover:shadow-gold/40"}`}>
-      {added ? "Added to Cart ✓" : "Add to Cart"}
-    </button>
+    <div className="mt-4">
+      <div className="mb-3 flex items-center justify-center gap-4">
+        <span className="text-sm text-gray-600">Quantity:</span>
+        <div className="flex items-center rounded-full border border-gold/60">
+          <button type="button" onClick={() => setQty((q) => Math.max(1, q - 1))} className="px-3 py-1 text-lg text-gold transition-all duration-300 hover:text-charcoal active:scale-90" aria-label="Decrease quantity">-</button>
+          <span className="w-8 text-center font-semibold">{qty}</span>
+          <button type="button" onClick={() => setQty((q) => q + 1)} className="px-3 py-1 text-lg text-gold transition-all duration-300 hover:text-charcoal active:scale-90" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+      <button onClick={handleAdd} className={`w-full rounded-full px-8 py-3 transition-all duration-300 active:scale-95 ${added ? "scale-105 bg-[#8C6D1F] text-white shadow-lg shadow-gold/40" : "bg-gold text-charcoal hover:-translate-y-0.5 hover:bg-charcoal hover:text-white hover:shadow-lg hover:shadow-gold/40"}`}>
+        {added ? `Added ${qty} to Cart ✓` : "Add to Cart"}
+      </button>
+    </div>
   );
 }
