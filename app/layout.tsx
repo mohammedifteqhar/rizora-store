@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <CartProvider>
-          <div className="mx-auto min-h-screen w-full max-w-[1400px] bg-cream shadow-lg">
+          <div className="min-h-screen w-full bg-cream">
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
