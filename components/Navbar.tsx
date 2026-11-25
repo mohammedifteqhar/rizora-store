@@ -26,7 +26,7 @@ export default function Navbar() {
             <img src="/logo.jpg" alt="Rizora logo" className="h-20 w-20 shrink-0 object-contain lg:h-32 lg:w-32" />
             <span className="flex flex-col leading-none">
               <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-2xl font-semibold tracking-widest text-transparent lg:text-4xl">RIZORA</span>
-              <span className="mt-1 text-[8px] font-semibold tracking-[0.3em] text-[#B9975B] lg:text-[10px]">WALL DECOR</span>
+              <span className="mt-1 text-[8px] font-semibold tracking-[0.3em] text-[#B9975B] lg:text-[10px]">WALL AND HOME DECOR</span>
             </span>
           </Link>
           <nav className="mx-auto hidden w-fit items-center gap-6 rounded-full bg-white px-6 py-3 text-xs font-semibold tracking-widest text-charcoal shadow-sm lg:flex">
