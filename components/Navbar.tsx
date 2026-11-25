@@ -23,7 +23,7 @@ export default function Navbar() {
         <div className="h-1 w-full bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874]" />
         <div className="flex w-full flex-nowrap items-center justify-between gap-2 px-3 py-1 lg:px-12">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-28 w-28 shrink-0 object-contain lg:h-40 lg:w-40" />
+            <img src="/logo.jpg" alt="Rizora logo" className="h-28 w-28 shrink-0 object-contain lg:h-38 lg:w-38" />
             <span className="flex flex-col leading-none">
               <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-2xl font-semibold tracking-widest text-transparent lg:text-4xl">RIZORA</span>
               <span className="mt-1 text-[8px] font-semibold tracking-[0.3em] text-[#B9975B] lg:text-[10px]">WALL DECOR</span>
