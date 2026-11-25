@@ -1,15 +1,31 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { products } from "@/lib/products";
 import AddToCart from "@/components/AddToCart";
 
-export default function ShopPage() {
+const categories = ["All", "Canvas", "Clocks", "Best Selling"];
+// Starting Best Selling picks only, owner to confirm. Change these 3 ids if the owner says different best sellers.
+const bestSellerIds = ["midnight-river-resin-wall-clock", "triple-rush-resin-canvas", "sapphire-drift-resin-canvas"];
+
+function ShopPageContent() {
+  const searchParams = useSearchParams();
+  const urlCategory = searchParams.get("category");
   const [category, setCategory] = useState("All");
   const [sort, setSort] = useState("newest");
-  const categories = ["All", "Canvas", "Clocks"];
 
-  const filtered = products.filter((product) => category === "All" || product.category === category);
+  useEffect(() => {
+    if (urlCategory && categories.includes(urlCategory)) {
+      setCategory(urlCategory);
+    }
+  }, [urlCategory]);
+
+  const filtered = products.filter((product) => {
+    if (category === "All") return true;
+    if (category === "Best Selling") return bestSellerIds.includes(product.id);
+    return product.category === category;
+  });
 
   const sorted = [...filtered].sort((a, b) => {
     if (sort === "low") return a.price - b.price;
@@ -23,7 +39,7 @@ export default function ShopPage() {
       <div className="flex justify-center">
         <p className="mt-6 rounded-full bg-white px-5 py-2 text-xs font-semibold tracking-[0.3em] text-gold shadow-sm">✦ SHOP ✦</p>
       </div>
-      <h1 className="mt-6 border-b-2 border-gold pb-4 text-center font-serif text-4xl text-gold">Shop All Pieces</h1>
+      <h1 className="mt-6 border-b-2 border-gold pb-4 text-center font-serif text-4xl text-gold">{category === "All" ? "Shop All Pieces" : category === "Best Selling" ? "Best Selling" : `Shop ${category}`}</h1>
       <p className="mt-4 text-center text-gray-500">{sorted.length} pieces, hand-finished in Bengaluru.</p>
 
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -57,5 +73,13 @@ export default function ShopPage() {
         ))}
       </div>
     </main>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<main className="w-full px-4 py-12 text-center">Loading shop...</main>}>
+      <ShopPageContent />
+    </Suspense>
   );
 }
