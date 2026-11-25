@@ -1,22 +1,46 @@
+import Link from "next/link";
+
 const posts = [
-  { title: "How to choose art for a living room", description: "Start with size, then colour, then light." },
-  { title: "Gold accents without going over the top", description: "One gold piece is enough to warm a room." },
-  { title: "Mirrors that make a small room feel bigger", description: "Place them opposite a window for more light." },
+  {
+    title: "How to Choose Wall Art for Your Living Room",
+    text: "Start with the wall, not the piece. A large wall needs a large canvas, a small wall needs one clear piece, not many small ones.",
+    image: "/products/triple-rush-resin-canvas.jpg",
+  },
+  {
+    title: "Caring for Resin Canvas",
+    text: "Resin canvas is easy to care for. Wipe it with a dry cloth, keep it out of direct rain, and it will keep its shine for years.",
+    image: "/products/sapphire-drift-resin-canvas.jpg",
+  },
+  {
+    title: "Clocks as Wall Art",
+    text: "A wall clock can be the centre of a wall. Choose one that matches your room, hang it at eye level, and let it do the talking.",
+    image: "/products/grand-prix-racer-wall-clock.jpg",
+  },
 ];
 
 export default function JournalPage() {
   return (
-    <main className="w-full px-6 py-12 lg:px-12">
+    <main className="w-full overflow-x-hidden bg-cream px-4 py-12 text-charcoal sm:px-6 lg:px-12">
       <div className="h-1 w-full bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874]" />
-      <h1 className="mt-6 border-b-2 border-gold pb-4 font-serif text-4xl text-gold">Journal</h1>
-      <p className="mt-6 text-gray-600">Ideas for your walls.</p>
-      <div className="mt-8 grid grid-cols-1 gap-6">
+      <div className="mt-6 flex justify-center">
+        <p className="rounded-full bg-white px-5 py-2 text-xs font-semibold tracking-[0.3em] text-gold shadow-sm">FROM THE JOURNAL</p>
+      </div>
+      <h1 className="mt-6 text-center font-serif text-4xl">Journal</h1>
+      <p className="mt-2 text-center text-gray-500">Simple ideas for choosing, hanging and caring for wall decor.</p>
+      <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {posts.map((post) => (
-          <div key={post.title} className="rounded-lg border border-[#E6DFD5] bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-gold/20">
-            <h3 className="font-serif text-xl text-gold">{post.title}</h3>
-            <p className="mt-2 text-sm text-gray-600">{post.description}</p>
-          </div>
+          <article key={post.title} className="flex flex-col overflow-hidden rounded-3xl border border-[#E6DFD5] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-gold/20">
+            <img src={post.image} alt={post.title} className="h-48 w-full object-cover" />
+            <div className="flex flex-1 flex-col p-6">
+              <h2 className="font-serif text-xl leading-snug">{post.title}</h2>
+              <p className="mt-3 flex-1 text-sm text-gray-600">{post.text}</p>
+              <Link href="/shop" className="mt-6 inline-block font-semibold text-gold hover:underline">Shop the Collection →</Link>
+            </div>
+          </article>
         ))}
+      </div>
+      <div className="mt-10 flex justify-center">
+        <Link href="/book" className="rounded-full bg-gold px-8 py-3 font-semibold text-charcoal">Book a Free Consultation</Link>
       </div>
     </main>
   );
