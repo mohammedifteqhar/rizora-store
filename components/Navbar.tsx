@@ -20,12 +20,13 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-[#E6DFD5] bg-[#FBEEDC]">
-        <div className="flex w-full items-center justify-between gap-3 px-4 py-1 lg:px-12">
+        <div className="h-1 w-full bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874]" />
+        <div className="flex w-full flex-nowrap items-center justify-between gap-2 px-3 py-1 lg:px-12">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-32 w-32 shrink-0 object-contain sm:h-40 sm:w-40" />
+            <img src="/logo.jpg" alt="Rizora logo" className="h-14 w-14 shrink-0 object-contain lg:h-32 lg:w-32" />
             <span className="flex flex-col leading-none">
-              <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-4xl font-semibold tracking-widest text-transparent sm:text-5xl">RIZORA</span>
-              <span className="mt-1 text-[10px] font-semibold tracking-[0.3em] text-[#B9975B]">WALL AND HOME DECOR</span>
+              <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-2xl font-semibold tracking-widest text-transparent lg:text-4xl">RIZORA</span>
+              <span className="mt-1 text-[8px] font-semibold tracking-[0.3em] text-[#B9975B] lg:text-[10px]">WALL DECOR</span>
             </span>
           </Link>
           <nav className="mx-auto hidden w-fit items-center gap-6 rounded-full bg-white px-6 py-3 text-xs font-semibold tracking-widest text-charcoal shadow-sm lg:flex">
@@ -40,10 +41,10 @@ export default function Navbar() {
             <button onClick={() => setLoginOpen(true)} className="rounded-full bg-white px-5 py-3 text-xs font-semibold tracking-widest shadow-sm hover:text-gold">SIGN IN</button>
             <Link href="/cart" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Open cart">🛒</Link>
           </div>
-          <div className="flex shrink-0 items-center gap-3 lg:hidden">
-            <Link href="/shop" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Search">🔍</Link>
-            <Link href="/cart" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Open cart">🛒</Link>
-            <button onClick={() => setMenuOpen(true)} className="flex h-11 w-11 flex-col items-center justify-center gap-1 rounded-full bg-white shadow-sm" aria-label="Open menu">
+          <div className="flex shrink-0 items-center gap-2 lg:hidden">
+            <Link href="/shop" className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Search">🔍</Link>
+            <Link href="/cart" className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Open cart">🛒</Link>
+            <button onClick={() => setMenuOpen(true)} className="flex h-10 w-10 flex-col items-center justify-center gap-1 rounded-full bg-white shadow-sm" aria-label="Open menu">
               <span className="h-0.5 w-5 bg-[#B45309]" />
               <span className="h-0.5 w-5 bg-[#B45309]" />
               <span className="h-0.5 w-5 bg-[#B45309]" />
