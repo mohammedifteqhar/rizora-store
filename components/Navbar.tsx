@@ -28,8 +28,8 @@ export default function Navbar() {
   function menuLink(href: string) {
     const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
     return active
-      ? "flex items-center gap-3 rounded-xl bg-white px-3 py-2.5 text-base font-semibold text-[#B45309] shadow-sm"
-      : "flex items-center gap-3 rounded-xl px-3 py-2.5 text-base font-semibold text-charcoal hover:bg-white";
+      ? "relative flex items-center gap-3 rounded-xl bg-[#EDE3D0] px-3 py-2.5 text-base font-semibold text-[#B45309] shadow-sm before:absolute before:left-0 before:top-2 before:bottom-2 before:w-1 before:rounded-full before:bg-[#B45309]"
+      : "relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-base font-semibold text-charcoal hover:bg-white";
   }
 
   function subLink(category: string) {
@@ -81,18 +81,26 @@ export default function Navbar() {
       </header>
 
       <div className={`fixed inset-0 z-50 flex justify-end bg-black/50 transition-opacity duration-300 ${menuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={closeMenu}>
-        <div className={`flex h-full w-4/5 max-w-xs flex-col bg-[#FBEEDC] p-4 shadow-xl transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"}`} onClick={(e) => e.stopPropagation()}>
+        <div className={`flex h-full w-4/5 max-w-xs flex-col overflow-y-auto bg-[#FBEEDC] p-4 shadow-xl transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"}`} onClick={(e) => e.stopPropagation()}>
           <div className="flex items-center justify-between">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-14 w-14 object-contain" />
+            <div className="flex items-center gap-3">
+              <img src="/logo.jpg" alt="Rizora logo" className="h-14 w-14 object-contain" />
+              <span className="font-serif text-2xl tracking-[0.2em] text-charcoal">RIZORA</span>
+            </div>
             <button onClick={closeMenu} className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Close menu">X</button>
           </div>
           <div className="mt-4 flex items-center gap-3 rounded-full bg-white px-4 py-2.5 text-sm shadow-sm">
             <svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" className="h-5 w-5 shrink-0"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-            <input type="text" placeholder="Search decor..." className="w-full bg-transparent text-sm outline-none" />
+            <input type="text" placeholder="Search Rizora..." className="w-full bg-transparent text-sm outline-none" />
           </div>
-          <nav className="mt-4 flex flex-col gap-1.5">
+          <div className="mt-5 flex items-center gap-3">
+            <span className="h-px flex-1 bg-[#D9C7A8]" />
+            <span className="text-xs font-semibold tracking-[0.3em] text-[#8C6D1F]">DISCOVER</span>
+            <span className="h-px flex-1 bg-[#D9C7A8]" />
+          </div>
+          <nav className="mt-3 flex flex-col gap-1.5">
             <Link href="/" onClick={closeMenu} className={menuLink("/")}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h5v-6h4v6h5V10" /></svg></span> Home {(pathname === "/") && <span className="ml-auto h-2 w-2 rounded-full bg-[#B45309]" />}
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h5v-6h4v6h5V10" /></svg></span> Home <span className="ml-auto text-[#B9975B]">›</span>
             </Link>
             <div>
               <button onClick={() => setShopOpen(!shopOpen)} className={menuLink("/shop") + " w-full text-left"}>
@@ -108,20 +116,30 @@ export default function Navbar() {
               )}
             </div>
             <Link href="/collections" onClick={closeMenu} className={menuLink("/collections")}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="9" cy="10" r="2" /><path d="m3 17 5-4 4 3 4-3 5 4" /></svg></span> Collections {pathname.startsWith("/collections") && <span className="ml-auto h-2 w-2 rounded-full bg-[#B45309]" />}
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="9" cy="10" r="2" /><path d="m3 17 5-4 4 3 4-3 5 4" /></svg></span> Collections <span className="ml-auto text-[#B9975B]">›</span>
             </Link>
             <Link href="/artisan" onClick={closeMenu} className={menuLink("/artisan")}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7L12 3z" /></svg></span> Artisan {pathname.startsWith("/artisan") && <span className="ml-auto h-2 w-2 rounded-full bg-[#B45309]" />}
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7L12 3z" /></svg></span> Artisan <span className="ml-auto text-[#B9975B]">›</span>
             </Link>
             <Link href="/journal" onClick={closeMenu} className={menuLink("/journal")}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z" /><path d="M19 19H6a2 2 0 0 0-2 2" /></svg></span> Journal {pathname.startsWith("/journal") && <span className="ml-auto h-2 w-2 rounded-full bg-[#B45309]" />}
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5z" /><path d="M19 19H6a2 2 0 0 0-2 2" /></svg></span> Journal <span className="ml-auto text-[#B9975B]">›</span>
             </Link>
             <Link href="/book" onClick={closeMenu} className={menuLink("/book")}>
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M8 3v4M16 3v4M3 10h18" /></svg></span> Book {pathname.startsWith("/book") && <span className="ml-auto h-2 w-2 rounded-full bg-[#B45309]" />}
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E6DFD5] bg-white"><svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M8 3v4M16 3v4M3 10h18" /></svg></span> Book an Experience <span className="ml-auto text-[#B9975B]">›</span>
             </Link>
           </nav>
-          <div className="mt-auto pt-4">
-            <Link href="/book" onClick={closeMenu} className="block w-full rounded-full bg-gold px-6 py-3 text-center text-sm font-semibold tracking-widest text-charcoal">BOOK</Link>
+          <Link href="/shop" onClick={closeMenu} className="relative mt-5 block overflow-hidden rounded-3xl shadow-sm">
+            <img src="/products/midnight-river-clock.jpg" alt="The Rizora Edit" className="h-40 w-full object-cover" />
+            <span className="absolute inset-0 bg-black/50" />
+            <span className="absolute inset-0 flex flex-col justify-end p-5">
+              <span className="text-[10px] font-semibold tracking-[0.3em] text-[#E8C874]">THE RIZORA EDIT</span>
+              <span className="mt-1 font-serif text-2xl leading-tight text-white">Crafted with<br />intention.</span>
+              <span className="mt-1 text-xs text-white/80">Discover the art of handcrafted living.</span>
+              <span className="mt-2 text-xs font-semibold tracking-widest text-white">EXPLORE →</span>
+            </span>
+          </Link>
+          <div className="mt-5">
+            <Link href="/book" onClick={closeMenu} className="block w-full rounded-full bg-gold px-6 py-3 text-center text-sm font-semibold tracking-widest text-charcoal">BOOK AN EXPERIENCE</Link>
             <button onClick={openLogin} className="mt-2 block w-full rounded-full border-2 border-gold bg-white px-6 py-3 text-center text-sm font-semibold tracking-widest text-[#8C6D1F]">SIGN IN / LOGIN</button>
           </div>
         </div>
