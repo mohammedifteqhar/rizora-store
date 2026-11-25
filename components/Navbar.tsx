@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [loginMessage, setLoginMessage] = useState("");
 
@@ -11,28 +12,82 @@ export default function Navbar() {
     setLoginMessage("Login is demo only. Real login will be added in Phase 3.");
   }
 
+  function openLogin() {
+    setMenuOpen(false);
+    setLoginOpen(true);
+  }
+
   return (
     <>
-      <header className="border-b-2 border-gold bg-cream">
-        <div className="h-1 w-full bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874]" />
-        <div className="flex w-full flex-col items-center justify-between gap-2 px-4 py-2 sm:flex-row sm:flex-wrap lg:px-12">
+      <header className="sticky top-0 z-40 border-b border-[#E6DFD5] bg-[#FBEEDC]">
+        <div className="flex w-full items-center justify-between gap-3 px-4 py-2 lg:px-12">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-16 w-16 shrink-0 object-contain sm:h-24 sm:w-24" />
-            <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-2xl font-semibold leading-none tracking-widest text-transparent sm:text-4xl">RIZORA</span>
+            <img src="/logo.jpg" alt="Rizora logo" className="h-16 w-16 shrink-0 object-contain sm:h-20 sm:w-20" />
+            <span className="flex flex-col leading-none">
+              <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-3xl font-semibold tracking-widest text-transparent sm:text-4xl">RIZORA</span>
+              <span className="mt-1 text-[10px] font-semibold tracking-[0.3em] text-[#B9975B]">WALL DECOR</span>
+            </span>
           </Link>
-          <nav className="mx-auto flex w-fit max-w-full flex-wrap justify-center gap-3 rounded-full border border-gold/60 px-4 py-2 text-[10px] tracking-widest text-[#B9975B] sm:gap-6 sm:px-6 sm:text-xs">
-            <Link href="/shop" className="transition-all duration-300 hover:text-gold hover:underline hover:underline-offset-4">SHOP</Link>
-            <Link href="/collections" className="transition-all duration-300 hover:text-gold hover:underline hover:underline-offset-4">COLLECTIONS</Link>
-            <Link href="/artisan" className="transition-all duration-300 hover:text-gold hover:underline hover:underline-offset-4">ARTISAN</Link>
-            <Link href="/journal" className="transition-all duration-300 hover:text-gold hover:underline hover:underline-offset-4">JOURNAL</Link>
+          <nav className="mx-auto hidden w-fit items-center gap-6 rounded-full bg-white px-6 py-3 text-xs font-semibold tracking-widest text-charcoal shadow-sm lg:flex">
+            <Link href="/" className="hover:text-gold">HOME</Link>
+            <Link href="/shop" className="hover:text-gold">SHOP</Link>
+            <Link href="/collections" className="hover:text-gold">COLLECTIONS</Link>
+            <Link href="/artisan" className="hover:text-gold">ARTISAN</Link>
+            <Link href="/journal" className="hover:text-gold">JOURNAL</Link>
           </nav>
-          <div className="flex shrink-0 items-center justify-center gap-4 text-xs tracking-widest text-[#B9975B]">
-            <Link href="/cart" className="text-xl hover:text-gold">🛒</Link>
-            <Link href="/book" className="hover:text-gold">BOOK</Link>
-            <button onClick={() => setLoginOpen(true)} className="rounded-full border border-gold px-4 py-2 text-gold">LOGIN</button>
+          <div className="hidden shrink-0 items-center gap-3 lg:flex">
+            <Link href="/shop" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Search">🔍</Link>
+            <button onClick={() => setLoginOpen(true)} className="rounded-full bg-white px-5 py-3 text-xs font-semibold tracking-widest shadow-sm hover:text-gold">SIGN IN</button>
+            <Link href="/cart" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Open cart">🛒</Link>
+          </div>
+          <div className="flex shrink-0 items-center gap-3 lg:hidden">
+            <Link href="/shop" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Search">🔍</Link>
+            <Link href="/cart" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Open cart">🛒</Link>
+            <button onClick={() => setMenuOpen(true)} className="flex h-11 w-11 flex-col items-center justify-center gap-1 rounded-full bg-white shadow-sm" aria-label="Open menu">
+              <span className="h-0.5 w-5 bg-[#B45309]" />
+              <span className="h-0.5 w-5 bg-[#B45309]" />
+              <span className="h-0.5 w-5 bg-[#B45309]" />
+            </button>
           </div>
         </div>
       </header>
+
+      <div className={`fixed inset-0 z-50 flex justify-end bg-black/50 transition-opacity duration-300 ${menuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setMenuOpen(false)}>
+        <div className={`flex h-full w-4/5 max-w-sm flex-col bg-[#FBEEDC] p-6 shadow-xl transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"}`} onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center justify-between">
+            <img src="/logo.jpg" alt="Rizora logo" className="h-16 w-16 object-contain" />
+            <button onClick={() => setMenuOpen(false)} className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-xl shadow-sm" aria-label="Close menu">X</button>
+          </div>
+          <div className="mt-6 flex items-center gap-3 rounded-full bg-white px-5 py-3 shadow-sm">
+            <span>🔍</span>
+            <input type="text" placeholder="Search decor..." className="w-full bg-transparent outline-none" />
+          </div>
+          <nav className="mt-6 flex flex-col gap-2">
+            <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-4 rounded-2xl bg-white px-4 py-3 text-xl font-semibold text-[#B45309] shadow-sm">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E6DFD5] bg-white text-lg">🏠</span> Home <span className="ml-auto h-2 w-2 rounded-full bg-[#B45309]" />
+            </Link>
+            <Link href="/shop" onClick={() => setMenuOpen(false)} className="flex items-center gap-4 rounded-2xl px-4 py-3 text-xl font-semibold text-charcoal hover:bg-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E6DFD5] bg-white text-lg">🛍️</span> Shop <span className="ml-auto">∨</span>
+            </Link>
+            <Link href="/collections" onClick={() => setMenuOpen(false)} className="flex items-center gap-4 rounded-2xl px-4 py-3 text-xl font-semibold text-charcoal hover:bg-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E6DFD5] bg-white text-lg">🖼️</span> Collections
+            </Link>
+            <Link href="/artisan" onClick={() => setMenuOpen(false)} className="flex items-center gap-4 rounded-2xl px-4 py-3 text-xl font-semibold text-charcoal hover:bg-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E6DFD5] bg-white text-lg">✋</span> Artisan
+            </Link>
+            <Link href="/journal" onClick={() => setMenuOpen(false)} className="flex items-center gap-4 rounded-2xl px-4 py-3 text-xl font-semibold text-charcoal hover:bg-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E6DFD5] bg-white text-lg">📖</span> Journal
+            </Link>
+            <Link href="/book" onClick={() => setMenuOpen(false)} className="flex items-center gap-4 rounded-2xl px-4 py-3 text-xl font-semibold text-charcoal hover:bg-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E6DFD5] bg-white text-lg">📅</span> Book
+            </Link>
+          </nav>
+          <div className="mt-auto pt-6">
+            <Link href="/book" onClick={() => setMenuOpen(false)} className="block w-full rounded-full bg-gold px-8 py-4 text-center font-semibold tracking-widest text-charcoal">BOOK</Link>
+            <button onClick={openLogin} className="mt-3 block w-full rounded-full bg-[#B45309] px-8 py-4 text-center font-semibold tracking-widest text-white">SIGN IN / LOGIN</button>
+          </div>
+        </div>
+      </div>
 
       {loginOpen && (
         <div className="fixed inset-0 z-50 flex justify-end bg-black/50">
