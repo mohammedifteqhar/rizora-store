@@ -22,10 +22,10 @@ export default function Navbar() {
       <header className="sticky top-0 z-40 border-b border-[#E6DFD5] bg-[#FBEEDC]">
         <div className="flex w-full items-center justify-between gap-3 px-4 py-2 lg:px-12">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-24 w-24 shrink-0 object-contain sm:h-28 sm:w-28" />
+            <img src="/logo.jpg" alt="Rizora logo" className="h-32 w-32 shrink-0 object-contain sm:h-40 sm:w-40" />
             <span className="flex flex-col leading-none">
-              <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-3xl font-semibold tracking-widest text-transparent sm:text-4xl">RIZORA</span>
-              <span className="mt-1 text-[10px] font-semibold tracking-[0.3em] text-[#B9975B]">WALL DECOR</span>
+              <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-4xl font-semibold tracking-widest text-transparent sm:text-5xl">RIZORA</span>
+              <span className="mt-1 text-[10px] font-semibold tracking-[0.3em] text-[#B9975B]">WALL AND HOME DECOR</span>
             </span>
           </Link>
           <nav className="mx-auto hidden w-fit items-center gap-6 rounded-full bg-white px-6 py-3 text-xs font-semibold tracking-widest text-charcoal shadow-sm lg:flex">
