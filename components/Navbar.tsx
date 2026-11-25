@@ -26,7 +26,7 @@ export default function Navbar() {
             <img src="/logo.jpg" alt="Rizora logo" className="h-20 w-20 shrink-0 object-contain lg:h-32 lg:w-32" />
             <span className="flex flex-col leading-none">
               <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-2xl font-semibold tracking-widest text-transparent lg:text-4xl">RIZORA</span>
-              <span className="mt-1 text-[8px] font-semibold tracking-[0.3em] text-[#B9975B] lg:text-[10px]">WALL AND HOME DECOR</span>
+              <span className="mt-1 text-[8px] font-semibold tracking-[0.3em] text-[#B9975B] lg:text-[10px]">WALL DECOR</span>
             </span>
           </Link>
           <nav className="mx-auto hidden w-fit items-center gap-6 rounded-full bg-white px-6 py-3 text-xs font-semibold tracking-widest text-charcoal shadow-sm lg:flex">
@@ -37,13 +37,21 @@ export default function Navbar() {
             <Link href="/journal" className="hover:text-gold">JOURNAL</Link>
           </nav>
           <div className="hidden shrink-0 items-center gap-3 lg:flex">
-            <Link href="/shop" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Search">🔍</Link>
+            <Link href="/shop" className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" className="h-5 w-5"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            </Link>
             <button onClick={() => setLoginOpen(true)} className="rounded-full bg-white px-5 py-3 text-xs font-semibold tracking-widest shadow-sm hover:text-gold">SIGN IN</button>
-            <Link href="/cart" className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Open cart">🛒</Link>
+            <Link href="/cart" className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Open cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M6 7h12l1.2 13.2a1 1 0 0 1-1 1.1H5.8a1 1 0 0 1-1-1.1L6 7z" /><path d="M9 10V6a3 3 0 0 1 6 0v4" /></svg>
+            </Link>
           </div>
           <div className="flex shrink-0 items-center gap-2 lg:hidden">
-            <Link href="/shop" className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Search">🔍</Link>
-            <Link href="/cart" className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg shadow-sm" aria-label="Open cart">🛒</Link>
+            <Link href="/shop" className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" className="h-5 w-5"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            </Link>
+            <Link href="/cart" className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm" aria-label="Open cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M6 7h12l1.2 13.2a1 1 0 0 1-1 1.1H5.8a1 1 0 0 1-1-1.1L6 7z" /><path d="M9 10V6a3 3 0 0 1 6 0v4" /></svg>
+            </Link>
             <button onClick={() => setMenuOpen(true)} className="flex h-10 w-10 flex-col items-center justify-center gap-1 rounded-full bg-white shadow-sm" aria-label="Open menu">
               <span className="h-0.5 w-5 bg-[#B45309]" />
               <span className="h-0.5 w-5 bg-[#B45309]" />
@@ -60,7 +68,7 @@ export default function Navbar() {
             <button onClick={() => setMenuOpen(false)} className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-xl shadow-sm" aria-label="Close menu">X</button>
           </div>
           <div className="mt-6 flex items-center gap-3 rounded-full bg-white px-5 py-3 shadow-sm">
-            <span>🔍</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8C6D1F" strokeWidth="1.8" strokeLinecap="round" className="h-5 w-5 shrink-0"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
             <input type="text" placeholder="Search decor..." className="w-full bg-transparent outline-none" />
           </div>
           <nav className="mt-6 flex flex-col gap-2">
