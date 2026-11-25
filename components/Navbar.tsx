@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-[#E6DFD5] bg-[#FBEEDC]">
-        <div className="flex w-full items-center justify-between gap-3 px-4 py-2 lg:px-12">
+        <div className="flex w-full items-center justify-between gap-3 px-4 py-1 lg:px-12">
           <Link href="/" className="flex shrink-0 items-center gap-3">
             <img src="/logo.jpg" alt="Rizora logo" className="h-32 w-32 shrink-0 object-contain sm:h-40 sm:w-40" />
             <span className="flex flex-col leading-none">
