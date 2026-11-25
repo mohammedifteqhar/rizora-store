@@ -22,7 +22,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-40 border-b border-[#E6DFD5] bg-[#FBEEDC]">
         <div className="flex w-full items-center justify-between gap-3 px-4 py-2 lg:px-12">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-16 w-16 shrink-0 object-contain sm:h-20 sm:w-20" />
+            <img src="/logo.jpg" alt="Rizora logo" className="h-24 w-24 shrink-0 object-contain sm:h-28 sm:w-28" />
             <span className="flex flex-col leading-none">
               <span className="bg-gradient-to-r from-[#8C6D1F] via-[#C9A227] to-[#E8C874] bg-clip-text font-serif text-3xl font-semibold tracking-widest text-transparent sm:text-4xl">RIZORA</span>
               <span className="mt-1 text-[10px] font-semibold tracking-[0.3em] text-[#B9975B]">WALL DECOR</span>
@@ -55,7 +55,7 @@ export default function Navbar() {
       <div className={`fixed inset-0 z-50 flex justify-end bg-black/50 transition-opacity duration-300 ${menuOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setMenuOpen(false)}>
         <div className={`flex h-full w-4/5 max-w-sm flex-col bg-[#FBEEDC] p-6 shadow-xl transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"}`} onClick={(e) => e.stopPropagation()}>
           <div className="flex items-center justify-between">
-            <img src="/logo.jpg" alt="Rizora logo" className="h-16 w-16 object-contain" />
+            <img src="/logo.jpg" alt="Rizora logo" className="h-20 w-20 object-contain" />
             <button onClick={() => setMenuOpen(false)} className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-xl shadow-sm" aria-label="Close menu">X</button>
           </div>
           <div className="mt-6 flex items-center gap-3 rounded-full bg-white px-5 py-3 shadow-sm">
